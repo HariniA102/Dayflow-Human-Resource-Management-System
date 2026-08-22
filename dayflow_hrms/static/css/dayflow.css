@@ -1,0 +1,77 @@
+:root {
+    --dayflow-primary: #4f46e5;
+    --dayflow-primary-dark: #3730a3;
+    --dayflow-accent: #14b8a6;
+    --dayflow-bg: #f5f6fb;
+}
+
+body {
+    background-color: var(--dayflow-bg);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+.dayflow-navbar {
+    background: linear-gradient(90deg, var(--dayflow-primary), var(--dayflow-primary-dark));
+}
+
+.card {
+    border: none;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.card-header {
+    border-radius: 0.75rem 0.75rem 0 0 !important;
+    font-weight: 600;
+}
+
+.btn-primary {
+    background-color: var(--dayflow-primary);
+    border-color: var(--dayflow-primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--dayflow-primary-dark);
+    border-color: var(--dayflow-primary-dark);
+}
+
+.stat-card {
+    border-radius: 0.75rem;
+    color: #fff;
+    padding: 1.25rem;
+}
+
+.stat-card h2 {
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+.bg-dayflow-indigo { background: linear-gradient(135deg, #6366f1, #4338ca); }
+.bg-dayflow-teal { background: linear-gradient(135deg, #2dd4bf, #0f766e); }
+.bg-dayflow-amber { background: linear-gradient(135deg, #fbbf24, #b45309); }
+.bg-dayflow-rose { background: linear-gradient(135deg, #fb7185, #be123c); }
+
+.quick-card {
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.15s ease;
+    display: block;
+}
+
+.quick-card:hover {
+    transform: translateY(-3px);
+    color: inherit;
+}
+
+.auth-wrapper {
+    max-width: 480px;
+    margin: 3rem auto;
+}
+
+.status-badge-PRESENT { background-color: #10b981; }
+.status-badge-ABSENT { background-color: #ef4444; }
+.status-badge-HALF_DAY { background-color: #f59e0b; }
+.status-badge-LEAVE { background-color: #6366f1; }
+.status-badge-PENDING { background-color: #f59e0b; }
+.status-badge-APPROVED { background-color: #10b981; }
+.status-badge-REJECTED { background-color: #ef4444; }
