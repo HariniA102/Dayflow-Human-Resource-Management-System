@@ -1,4 +1,3 @@
-# Dayflow-Human-Resource-Management-System
 # Dayflow — Human Resource Management System
 
 A Django implementation of the Dayflow HRMS requirements: secure authentication,
@@ -18,6 +17,7 @@ leave/time-off management, and payroll visibility with approval workflows.
 
 ## Project layout
 
+```
 dayflow_hrms/
 ├── manage.py
 ├── requirements.txt
@@ -30,7 +30,7 @@ dayflow_hrms/
 ├── dashboard/              # role-based dashboards
 ├── templates/               # all HTML templates (Bootstrap 5)
 └── static/css/dayflow.css   # custom styling
-
+```
 
 ## Setup
 
@@ -44,23 +44,23 @@ dayflow_hrms/
 
 2. **Apply migrations**
 
-   bash
+   ```bash
    python manage.py makemigrations
    python manage.py migrate
    ```
 
 3. **Create a superuser** (optional — for `/admin/`)
 
-  bash
+   ```bash
    python manage.py createsuperuser
- 
+   ```
 
 4. **(Optional) Seed demo data** — creates one Admin/HR user and three
    Employee users with sample attendance, leave, and salary data:
 
-   bash
+   ```bash
    python manage.py seed_demo_data
-
+   ```
 
    This creates:
    - Admin/HR: `hr_admin` / `DayflowAdmin@123`
@@ -68,9 +68,9 @@ dayflow_hrms/
 
 5. **Run the development server**
 
- bash
+   ```bash
    python manage.py runserver
-
+   ```
 
    Visit `http://127.0.0.1:8000/` — you'll be redirected to sign in or sign up.
 
