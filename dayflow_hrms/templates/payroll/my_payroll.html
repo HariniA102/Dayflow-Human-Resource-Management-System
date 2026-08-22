@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}My Payroll{% endblock %}
+{% block content %}
+<h3 class="mb-4">My Payroll</h3>
+
+<div class="row g-3">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-white">Current Salary Structure (read-only)</div>
+            <div class="card-body">
+                <table class="table mb-0">
+                    <tr><td>Basic</td><td class="text-end">₹{{ structure.basic }}</td></tr>
+                    <tr><td>HRA</td><td class="text-end">₹{{ structure.hra }}</td></tr>
+                    <tr><td>Conveyance Allowance</td><td class="text-end">₹{{ structure.conveyance_allowance }}</td></tr>
+                    <tr><td>Other Allowances</td><td class="text-end">₹{{ structure.other_allowances }}</td></tr>
+                    <tr class="table-light fw-semibold"><td>Gross Salary</td><td class="text-end">₹{{ structure.gross_salary }}</td></tr>
+                    <tr><td>Provident Fund</td><td class="text-end">− ₹{{ structure.provident_fund }}</td></tr>
+                    <tr><td>Tax Deduction</td><td class="text-end">− ₹{{ structure.tax_deduction }}</td></tr>
+                    <tr><td>Other Deductions</td><td class="text-end">− ₹{{ structure.other_deductions }}</td></tr>
+                    <tr class="table-primary fw-bold"><td>Net Salary</td><td class="text-end">₹{{ structure.net_salary }}</td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-white">Salary Slips</div>
+            <ul class="list-group list-group-flush">
+                {% for slip in payslips %}
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>{{ slip.month }}/{{ slip.year }}</span>
+                    <span class="fw-semibold">₹{{ slip.net_salary }}</span>
+                </li>
+                {% empty %}
+                <li class="list-group-item text-muted">No salary slips generated yet.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

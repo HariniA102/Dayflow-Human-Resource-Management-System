@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Review Leave{% endblock %}
+{% block content %}
+<h3 class="mb-4">Review Leave Request</h3>
+<div class="row g-3">
+    <div class="col-md-5">
+        <div class="card">
+            <div class="card-header bg-white">Request Details</div>
+            <div class="card-body">
+                <p><strong>Employee:</strong> {{ leave.employee.get_full_name|default:leave.employee.username }}</p>
+                <p><strong>Type:</strong> {{ leave.get_leave_type_display }}</p>
+                <p><strong>Dates:</strong> {{ leave.start_date }} to {{ leave.end_date }} ({{ leave.total_days }} day{{ leave.total_days|pluralize }})</p>
+                <p><strong>Remarks:</strong> {{ leave.remarks|default:"—" }}</p>
+                <p class="mb-0"><strong>Current Status:</strong> <span class="badge status-badge-{{ leave.status }}">{{ leave.get_status_display }}</span></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <div class="card">
+            <div class="card-header bg-white">Decision</div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div class="mb-3">
+                            <label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                            {{ field }}
+                            {% for error in field.errors %}<div class="text-danger small">{{ error }}</div>{% endfor %}
+                        </div>
+                    {% endfor %}
+                    <button type="submit" class="btn btn-primary">Submit Decision</button>
+                    <a href="{% url 'leaves:all_leaves' %}" class="btn btn-outline-secondary">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
