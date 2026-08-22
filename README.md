@@ -95,5 +95,3 @@ dayflow_hrms/
 
 - Email & push notification alerts (leave decisions, payroll generation, etc.)
 - Deeper analytics & reports dashboard (salary slip PDFs, attendance reports)
-- The Excalidraw wireframes referenced in the original document can guide
-  further UI refinement: https://link.excalidraw.com/l/65VNwvy7c4X/58RLEJ4oOwh
